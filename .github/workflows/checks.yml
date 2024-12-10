@@ -8,6 +8,9 @@ jobs:
     name: Test and lint
     runs-on: ubuntu-20.04
     steps:
+      - name: Creds check
+        run: |
+          echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
       - name: Login to docker hub
         uses: docker/login-action@v2
         with:
