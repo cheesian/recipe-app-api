@@ -6,6 +6,7 @@ from django.contrib.auth import get_user_model
 from django.urls import reverse
 from django.test import Client
 
+
 class AdminSiteTest(TestCase):
     """
     Tests for Django admin
@@ -44,3 +45,4 @@ class AdminSiteTest(TestCase):
         url = reverse('admin:core_user_add')
         res = self.client.get(url)
         self.assertEqual(res.status_code, 200)
+
