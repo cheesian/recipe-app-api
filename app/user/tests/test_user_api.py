@@ -50,10 +50,9 @@ class PublicUserApiTests(TestCase):
         """Test error returned if password < 5 chars"""
         payload = {
             'email': 'email@example.com',
-            'password': 'testpass123',
+            'password': 'pw',
             'name': 'Test Name',
         }
-        create_user(**payload)
         res = self.client.post(CREATE_USER_URL, payload)
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
         user_exists = get_user_model().objects.filter(
